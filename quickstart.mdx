@@ -1,47 +1,105 @@
 ---
 title: "Quickstart"
-description: "Begin with a guide on the fastest path to a successful outcome"
+description: "A production theme remote management solution for Flutter applications. all in few steps and 2 lines of code."
 ---
 
-Describe how someone begins using your product. What is the first thing they need to do? Are there any prerequisites?
+Fskin is a Flutter package that allows you to easily manage and apply themes to your Flutter applications.
+With Fskin, you can create and customize skins for your app, and switch between them dynamically.
 
-A quickstart should take someone from zero to using your product. They'll get a quick win and a sense of what they can accomplish.
+All you need to do is create a project in the Fskin dashboard, create a skin, and then use the Fskin package in your Flutter app to apply the skin.
+Fskin will handle the rest, allowing you to focus on building your app without worrying about theme management.
 
 ## Prerequisites
 
 Before you begin, you must have:
 
-- Requirement one (for example, Node.js 18+, a free account, an API key)
-- Requirement two (for example, a compatible device, a compatible browser, a compatible operating system)
+- Flutter SDK installed
+- A Flutter Skin dashboard account with API credentials
 
 ## Get started
 
 <Steps>
-  <Step title="Install">
-    Describe how to install your product or sign up.
+  <Step title="Add flutter_skin package">
+    Add the flutter_skin package to your Flutter project's `pubspec.yaml`:
+
+    ```yaml
+    dependencies:
+      flutter:
+        sdk: flutter
+      flutter_skin: ^0.0.1
+    ```
+
+    Then install the package:
 
     ```bash
-    npm install your-package
+    flutter pub get
     ```
   </Step>
-  <Step title="Configure">
-    Describe any setup or configuration needed before first use.
 
-    ```bash
-    your-cli init
-    ```
+  <Step title="Create a project in the dashboard">
+    1. Log in to your Flutter Skin dashboard
+    2. Click "Create New Project" in the Projects section
+    3. Enter your project name
+    4. Click "Create"
+
+    ![Dashboard Project Creation](placeholder-project-creation.png)
   </Step>
-  <Step title="Run it">
-    Show the first thing a user does to see it working.
 
-    ```bash
-    your-cli start
+  <Step title="Create a skin and activate it">
+    1. Navigate to the Skins section
+    2. Click "Create New Skin"
+    3. Configure your skin theme and colors following the Material Color Scheme schema
+    4. Toggle "Active" to `true` to set it as the active skin
+    5. Click "Save"
+
+    ![Create and Activate Skin](placeholder-skin-creation.png)
+  </Step>
+
+  <Step title="Publish updates on the dashboard">
+    1. Review your project settings and active skin
+    2. Click "Publish" to make your updates live
+    3. Wait for the confirmation message
+  </Step>
+
+  <Step title="Retrieve API credentials">
+    1. Navigate to API Keys in your dashboard settings
+    2. Copy your API key related to your project. You'll need this to initialize the flutter_skin package in your app.
+  </Step>
+
+  <Step title="Initialize flutter_skin in your app">
+    Add the FlutterSkin initialization to your app's `main()` function:
+
+    ```dart
+    void main() async {
+      WidgetsFlutterBinding.ensureInitialized();
+      await FlutterSkin.init(
+        apiKey: 'your_api_key_here',
+      runApp(const MyApp());
+    }
     ```
+
+    Then apply the theme to your main app widget:
+
+    ```dart
+    class MyApp extends StatelessWidget {
+      const MyApp({Key? key}) : super(key: key);
+
+      @override
+      Widget build(BuildContext context) {
+        return MaterialApp(
+          title: 'My App',
+          theme: FlutterSkin.toThemeData(),
+          home: const HomePage(),
+        );
+      }
+    }
+    ```
+
+    Your app will now use the active skin theme from the dashboard!
+    Every time you update the skin in the dashboard and publish it, your users will see the new theme without needing to update the app.
   </Step>
 </Steps>
 
 <Tip>
-  Give people a way to get help. This could be a link to a support page, a chat with a customer support agent, or a forum for your product.
-
-  Example: Need help? Reach out to us at [support@yourcompany.com](mailto:support@yourcompany.com).
+  You can configure multiple skins for different themes, and switch between them in two clicks.
 </Tip>
