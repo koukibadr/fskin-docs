@@ -31,11 +31,11 @@ Every Flutter app running `flutter_skin` maintains a lightweight persistent conn
 
 **Skin** — a named set of color tokens that maps directly to Flutter's `ColorScheme`. One skin is active per project at a time.
 
-**Project** — represents a single Flutter project (Android, iOS, Web or desktop). Holds multiple skins and API keys. Belongs to a team.
+**Project** — represents a single Flutter project (Android, iOS, Web or desktop). Holds multiple skins and API keys and belongs to a team.
 
-**Team** — groups developers together. All team members can manage projects and skins collaboratively.
+**Team** — groups developers together. Team members can manage projects and skins based on their roles and permissions.
 
-**API Key** — scoped to a project. Used by the `flutter_skin` package to authenticate and fetch skins. Auto-generated when a project is created.
+**API Key** — scoped to a project. Used by the `flutter_skin` package to authenticate and fetch skins. Auto-generated when a project is created, you can create additional keys for different environments (e.g., staging, production).
 
 **Live push** — when a skin is published, all connected Flutter app instances receive the update via Server-Sent Events (SSE) and re-render immediately without a restart.
 
